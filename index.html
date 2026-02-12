@@ -12,11 +12,18 @@
         <div class="wrapper">
             <div class="header-content">
                 <div class="header-left">
-                    <h1 class="descriptor">Дескриптор</h1>
-                    <p class="description">Краткое описание продукта или услуги</p>
+                    <div class="header-logo">
+                        <image class="main-logo" src="images/main-logo.png"></image>
+                        <div class="header-divider"></div>
+                        <p class="description">Надёжная недвижимость <br>для жизни и бизнеса</p>
+                    </div>
                 </div>
                 <div class="header-right">
-                    <span class="phone">000000000</span>
+                    <a class="connection-link">
+                        <div class="phone-icon"><img src="images/phone.svg" alt="phone"></div>
+                        <span class="phone-number">+7 (999) 999-99-99</span>
+                    </a>
+                    <a class="connection-button" data-remodal-target="modal-form-call">Заказать звонок</a>
                 </div>
             </div>
         </div>
@@ -25,38 +32,38 @@
     <!-- Body -->
     <main class="body">
         <div class="wrapper">
-            <!-- Заголовок и подзаголовок -->
-            <div class="text-content">
-                <h2 class="main-title">Заголовок</h2>
-                <p class="title-description">
-                    *Цель заголовка — удержать внимание пользователя, раскрыть ключевое УТП и заставить его остановиться на странице
-                </p>
-                <h3 class="subtitle">Подзаголовок</h3>
-                <p class="subtitle-description">
-                    *Цель подзаголовка — раскрыть «заголовок», усилить его и сформировать 
-                    призыв к действию, а именно — побудить пользователя 
-                    к началу общения с AI-консультантом
-                </p>
-            </div>
+            <div class="main-section__inner">
 
-            <!-- Чат окно -->
-            <div class="chat-window">
-                <div class="chat-avatar">
-                    <div class="avatar-placeholder">
-                        <div class="online-indicator"></div>
+                <!-- Заголовок и подзаголовок -->
+                <div class="main-section">
+                    <div class="text-content">
+                        <h2 class="main-title">Закажите ремонт <br> квартиры  <span class="price-range">от 9 800 ₽/м²</span> <br> с гарантией <span class="warrant">5 лет</span> <br> и <span class="payment">оплатой по факту</span></h2>
+                        <h3 class="subtitle">Без авансов и скрытых доплат — Москва и МО</h3>
                     </div>
+                    <div class="hero"><img src="images/hero.png" alt="hero"></div>
                 </div>
-                <div class="chat-content-area">
-                    <div class="chat-messages" id="chatMessages"></div>
-                    <div class="chat-input-area">
-                        <form id="chatForm" class="chat-form">
-                            <input type="text" class="chat-input" id="chatInput" placeholder="Введите ваш вопрос..." autocomplete="off">
-                            <button type="submit" class="chat-send-btn" id="sendBtn" aria-label="Отправить">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3 12L21 3L12 21L11 13L3 12Z" fill="white"></path>
-                                </svg>
-                            </button>
-                        </form>
+                
+
+                <!-- Чат окно -->
+                <div class="chat-window">
+                    <div class="chat-avatar">
+                        <div class="avatar-placeholder">
+                            <img src="images/avatar.png" alt="Татьяна" class="avatar-img">
+                            <div class="online-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="chat-content-area">
+                        <div class="chat-messages" id="chatMessages"></div>
+                        <div class="chat-input-area">
+                            <form id="chatForm" class="chat-form">
+                                <input type="text" class="chat-input" id="chatInput" placeholder="Введите ваш вопрос..." autocomplete="off">
+                                <button type="submit" class="chat-send-btn" id="sendBtn" aria-label="Отправить">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 12L21 3L12 21L11 13L3 12Z" fill="white"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

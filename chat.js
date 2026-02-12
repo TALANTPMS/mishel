@@ -1,7 +1,7 @@
 // Конфигурация API
-// Используем Vercel API route вместо прямого обращения к OpenAI
-const API_URL = '/api/chat'; // Vercel Serverless Function
-const MODEL = 'gpt-4.1-mini'; // Правильное название модели
+// Используем Vercel API route (работает и локально через vercel dev, и на продакшене)
+const API_URL = '/api/chat';
+const MODEL = 'gpt-4.1-mini';
 const MAX_TOKENS = 300;
 const MAX_HISTORY = 10; // Сохраняем только 10 последних сообщений
 

@@ -1,3 +1,49 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('fonts/Montserrat-Regular.woff2') format('woff2'),
+         url('fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('fonts/Montserrat-Medium.woff2') format('woff2'),
+         url('fonts/Montserrat-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('fonts/Montserrat-SemiBold.woff2') format('woff2'),
+         url('fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('fonts/Montserrat-Bodld.woff2') format('woff2'),
+         url('fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('fonts/Montserrat-Light.woff2') format('woff2'),
+         url('fonts/Montserrat-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -10,12 +56,12 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: "Montserrat-Regular", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: #333;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #181C18;
 }
 
 /* Wrapper - Mobile First (без медиазапроса) */
@@ -23,13 +69,17 @@ body {
     position: relative;
     max-width: 362px;
     margin: 0 auto;
-    padding: 0 6px;
+    padding: 0 6px; 
 }
 
 /* Header */
 .header {
     padding: 20px 0;
-    border-bottom: 1px solid #e0e0e0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
 }
 
 .header-content {
@@ -38,23 +88,70 @@ body {
     gap: 15px;
 }
 
+.main-section__inner {
+    padding: 96px 0;
+}
+
 .header-left {
     text-align: left;
 }
 
-.descriptor {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
+.header-logo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
+.main-logo {
+    width: 100px;
+}
+
+.phone-number {
+    font-size: 9px;
+    font-family: "Montserrat-Medium";
+}
+
+
+.connection-link {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: center;
+}
+
+.phone-number {
+    font-size: 12px;
+}
+
+
 .description {
-    font-size: 14px;
-    color: #666;
+    font-size: 10px;
+    color: #212529;
+    font-family: "Montserrat-Medium";
+    line-height: 120%;
 }
 
 .header-right {
-    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.connection-button {
+    font-family: "Montserrat-SemiBold", sans-serif;
+    background-color: #D9712A;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+    line-height: normal;
+    width: 126px;
+    height: 32px;
+    font-size: 11px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .phone {
@@ -62,20 +159,41 @@ body {
     font-weight: 500;
 }
 
+.header .phone-icon {
+    width: 12px;
+}
+
+.header .phone-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
 /* Body */
 .body {
     padding: 30px 0;
     flex: 1;
+
 }
 
 .text-content {
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 20;
+}
+
+.main-section {
+   display: flex; 
 }
 
 .main-title {
-    font-size: 24px;
-    font-weight: 700;
+    font-family: "Montserrat-Bold";
+    font-size: 28px;
     margin-bottom: 10px;
+    line-height: 120%;
 }
 
 .title-description {
@@ -84,10 +202,21 @@ body {
     margin-bottom: 20px;
 }
 
+.hero {
+    position: absolute;
+    z-index: 10;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .subtitle {
+    font-family: "Montserrat-SemiBold";
     font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
+    line-height: 130%;
 }
 
 .subtitle-description {
@@ -98,13 +227,15 @@ body {
 /* Chat Window */
 .chat-window {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #203d7f;
     border-radius: 8px;
     display: flex;
     min-height: 400px;
     margin-bottom: 30px;
     overflow: hidden;
     position: relative;
+    z-index: 25;
+    background-color: #fff;
 }
 
 .chat-avatar {
@@ -117,9 +248,16 @@ body {
 .avatar-placeholder {
     width: 40px;
     height: 40px;
-    background-color: #ddd;
+    background-color: #fff;
     border-radius: 50%;
     position: relative;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .online-indicator {
@@ -314,7 +452,7 @@ body {
     width: 40px;
     height: 40px;
     padding: 0;
-    background-color: #007bff;
+    background-color: #203d7f;
     color: white;
     border: none;
     border-radius: 50%;
@@ -540,8 +678,8 @@ body {
 /* Footer */
 .footer {
     padding: 30px 0;
-    border-top: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
+    background-color: #31353E;
+    color: #ccc;
 }
 
 .footer-content {
@@ -553,7 +691,33 @@ body {
 .footer-column {
     text-align: center;
     font-size: 14px;
-    color: #666;
+    color: #aaa;
+}
+
+.price-range {
+    font-family: "Montserrat-Bold", sans-serif;
+    font-style: italic;
+    color: #903b00
+}
+
+.warrant {
+    font-family: "Montserrat-Bold", sans-serif;
+    font-style: italic;
+    color: #903b00
+}
+
+.payment {
+    font-family: "Montserrat-Regular", sans-serif;
+    line-height: 160%;
+    color: #ffffff;
+    background-color: #203d7f;
+    margin-bottom: 12px;
+    padding: 2px 9px 4px 9px;
+    border-radius: 8px;
+    display: inline;
+    width: fit-content;
+    text-align: center;
+    font-size: 26px;
 }
 
 /* Media Query: min-width 768px */
@@ -564,6 +728,33 @@ body {
         padding: 0 12px;
     }
 
+    .text-content {
+        margin-bottom: 80px;
+    }
+
+    .main-section__inner {
+        padding: 96px 0;
+    }
+
+    .hero {
+        width: 335px;
+        top: 52px;
+        left: 374px;
+    }
+
+    .connection-button {
+        font-size: 11px;
+    }
+
+    .header-logo {
+        flex-direction: row;
+        gap: 7px;
+    }
+
+    .main-logo {
+        width: 145px;
+    }
+
     .header-content {
         flex-direction: row;
         justify-content: space-between;
@@ -571,15 +762,18 @@ body {
     }
 
     .header-right {
-        text-align: right;
+        flex-direction: row;
+        gap: 12px;
     }
 
-    .descriptor {
-        font-size: 22px;
-    }
 
     .description {
-        font-size: 15px;
+        font-size: 10px;
+        padding-top: 4px;
+    }
+
+    .header .phone-icon {
+        width: 12px;
     }
 
     .phone {
@@ -588,6 +782,7 @@ body {
 
     .main-title {
         font-size: 28px;
+        margin-bottom: 20px;
     }
 
     .title-description {
@@ -595,7 +790,7 @@ body {
     }
 
     .subtitle {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .subtitle-description {
