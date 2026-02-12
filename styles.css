@@ -607,28 +607,39 @@ body {
 /* Формы ввода */
 .input-form-container {
     display: flex;
-    gap: 8px;
-    margin: 10px 0;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 2px;
     width: 100%;
     align-items: center;
 }
 
 .name-input,
 .phone-input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    width: 75%;
+    height: 44px;
+    padding: 0 10px 0 24px;
+    font-size: 12px;
+    display: block;
     outline: none;
-    font-family: inherit;
-    box-sizing: border-box;
-    transition: border-color 0.2s, color 0.2s, text-decoration 0.2s;
+    border: 1px solid #a2a2a2;
+    border-radius: 100px;
+    background: none;
+    color: #292231;
+    font-family: "Montserrat-Regular", sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+    transition: 0.3s linear;
 }
 
 .name-input:focus,
 .phone-input:focus {
-    border-color: #007bff;
+    border: 1.2px solid #322b3a;
+}
+
+.name-input::placeholder,
+.phone-input::placeholder {
+    font-size: 12px;
 }
 
 .phone-input-error {
@@ -642,26 +653,28 @@ body {
 }
 
 .form-submit-btn {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
+    font-family: "Montserrat-Bold", sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s;
-    white-space: nowrap;
-    font-family: inherit;
+    overflow: hidden;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    background: #D9712A;
+    box-shadow: 0px -2px 0px rgba(0, 0, 0, 0.3) inset;
+    width: 75%;
+    height: 44px;
+    font-size: 12px;
+    line-height: 140%;
+    color: #fff;
+    transition: 0.3s linear;
+    padding: 0 5px;
 }
 
-.form-submit-btn:hover {
-    background-color: #0056b3;
-}
 
-.form-submit-btn:active {
-    background-color: #004085;
-}
 
 /* Плашка о принятии заявки */
 .request-accepted {
@@ -741,6 +754,11 @@ body {
         max-width: 720px;
         margin: 0 auto;
         padding: 0 12px;
+    }
+
+    .input-form-container {
+        flex-direction: row;
+        margin-top: 5px;
     }
 
     .start-questions-container button:nth-child(1) {
@@ -937,13 +955,20 @@ body {
 
     .name-input,
     .phone-input {
-        font-size: 15px;
-        padding: 14px;
+        height: 52px;
+        font-size: 13px;
+        width: 175px;
+    }
+
+    .name-input::placeholder,
+    .phone-input::placeholder {
+        font-size: 13px;
     }
 
     .form-submit-btn {
-        font-size: 15px;
-        padding: 14px 24px;
+        height: 52px;
+        font-size: 13px;
+        width: 175px;
     }
 
     .accepted-content {
@@ -988,6 +1013,8 @@ body {
         max-width: 970px;
         padding: 0 15px;
     }
+
+   
 
     .start-questions-container button:nth-child(1) {
         width: 100px;
@@ -1167,13 +1194,20 @@ body {
 
     .name-input,
     .phone-input {
-        font-size: 16px;
-        padding: 16px;
+        width: 200px;
+        height: 56px;
+        font-size: 15px;
+    }
+
+    .name-input::placeholder,
+    .phone-input::placeholder {
+        font-size: 15px;
     }
 
     .form-submit-btn {
-        font-size: 16px;
-        padding: 16px 28px;
+        width: 200px;
+        height: 56px;
+        font-size: 15px;
     }
 
     .accepted-content {
@@ -1216,6 +1250,12 @@ body {
     .wrapper {
         padding: 0 20px;
         max-width: 1200px;
+    }
+
+    .input-form-container {
+        gap: 8px;
+        margin-top: 6px;
+        margin-bottom: 8px;
     }
 
     .start-questions-container {
@@ -1402,13 +1442,20 @@ body {
 
     .name-input,
     .phone-input {
-        font-size: 17px;
-        padding: 18px;
+        width: 33%;
+        height: 62px;
+        font-size: 16px;
+    }
+
+    .name-input::placeholder,
+    .phone-input::placeholder {
+        font-size: 16px;
     }
 
     .form-submit-btn {
-        font-size: 17px;
-        padding: 18px 32px;
+        width: 33%;
+        height: 62px;
+        font-size: 16px;
     }
 
     .accepted-content {
