@@ -189,7 +189,7 @@ body {
     position: relative;
     z-index: 20;
     align-items: center;
-    margin-bottom: 257px;
+    margin-bottom: 38px;
 }
 
 .main-section {
@@ -199,7 +199,7 @@ body {
 .main-title {
     font-family: "Montserrat-Bold";
     font-size: 26px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     line-height: 120%;
     text-align: center;
 }
@@ -210,19 +210,8 @@ body {
     margin-bottom: 20px;
 }
 
-.hero {
-    position: absolute;
-    z-index: 10;
-    width: 237px;
-    top: 262px;
-    left: 51px;
-}
 
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 .subtitle {
     font-family: "Montserrat-SemiBold";
@@ -1065,12 +1054,33 @@ body {
     gap: 4px;
 }
 
+.hero {
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Media Query: min-width 768px */
 @media (min-width: 768px) {
     .wrapper {
         max-width: 720px;
         margin: 0 auto;
         padding: 0 12px;
+    }
+
+    .header-divider {
+        background-color: #212529;
+        margin-top: 5px;
+        width: 1px;
+        height: 20px;
+        border-radius: 10px;
     }
 
     .footer-links {
@@ -1189,7 +1199,10 @@ body {
         width: 335px;
         top: 52px;
         left: 374px;
+        visibility: visible;
+
     }
+
 
     .connection-button {
         font-size: 11px;
@@ -1197,7 +1210,7 @@ body {
 
     .header-logo {
         flex-direction: row;
-        gap: 7px;
+        gap: 6px;
     }
 
     .main-logo {
@@ -1214,7 +1227,7 @@ body {
 
     .description {
         font-size: 10px;
-        padding-top: 4px;
+        margin-top: 5px;
         display: block;
     }
 
@@ -1432,6 +1445,10 @@ body {
     .wrapper {
         max-width: 970px;
         padding: 0 15px;
+    }
+
+    .header-divider {
+        height: 26px;
     }
 
     .footer-logo-text {
@@ -1702,6 +1719,10 @@ body {
         padding: 40px 36px;
     }
 
+    .header-logo {
+        gap: 8px;
+    }
+
     .modal-title {
         font-size: 20px;
     }
@@ -1728,6 +1749,11 @@ body {
     .wrapper {
         padding: 0 20px;
         max-width: 1200px;
+    }
+
+    .header-divider {
+        margin-top: 7px;
+        height: 32px;
     }
 
     .footer-logo-img {
@@ -1841,6 +1867,7 @@ body {
 
     .description {
         font-size: 15px;
+        margin-top: 7px;
     }
 
     .phone {
