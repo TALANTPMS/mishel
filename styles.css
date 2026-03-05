@@ -119,7 +119,13 @@ body {
     object-fit: contain;
     margin-top: 5px;
     margin-bottom: 5px;
-    
+
+}
+
+.main-logo img {
+    display: block;
+    width: 145px;      /* или любой нужный размер */
+    height: auto;      /* чтобы не тянуть по высоте */
 }
 
 .phone-number {
