@@ -19,6 +19,7 @@ let pageScrollAnimationFrameId = null;
 let pageScrollTargetY = 0;
 let isUserNearChatBottom = true;
 let initialChatAutoScrollDone = false;
+let userScrollLockUntil = 0; // Время до которого блокируем автоскролл после ручной прокрутки
 
 // Рингтон для сообщений
 const ringtone = new Audio('sounds/ringtone.mp3');
@@ -219,6 +220,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     await initializeDialog();
 });
 
+function cancelPageScrollAnimation() {
+    if (pageScrollAnimationFrameId) {
+        cancelAnimationFrame(pageScrollAnimationFrameId);
+        pageScrollAnimationFrameId = null;
+    }
+}
+
+function onUserScroll() {
+    cancelPageScrollAnimation();
+    isUserNearChatBottom = false;
+    userScrollLockUntil = Date.now() + 1500; // 1.5 сек не трогаем скролл после ручной прокрутки
+}
+
 function initChatScrollBehavior() {
     if (!chatWindow) return;
 
@@ -234,6 +248,13 @@ function initChatScrollBehavior() {
 
     window.addEventListener('scroll', updateFlag, { passive: true });
     updateFlag();
+
+    // Отменяем автоскролл при ручной прокрутке — колесо, тач, клавиши
+    window.addEventListener('wheel', onUserScroll, { passive: true });
+    window.addEventListener('touchmove', onUserScroll, { passive: true });
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Space'].includes(e.key)) onUserScroll();
+    });
 }
 
 function initializeChatSizingState() {
@@ -899,7 +920,7 @@ function showMessengerOptions() {
     const messengersContainer = document.createElement('div');
     messengersContainer.className = 'messengers-container';
     
-    const messengers = ['WhatsApp', 'Telegram', 'Max'];
+    const messengers = ['WhatsApp', 'Telegram'];
     
     messengers.forEach((messenger) => {
         const button = document.createElement('button');
@@ -1163,6 +1184,9 @@ function scrollToBottom(force = false) {
         return;
     }
 
+    // Не мешаем пользователю: если он недавно прокручивал вручную — не трогаем скролл
+    if (Date.now() < userScrollLockUntil) return;
+
     // Дальше скроллим только если пользователь сам "у низа"
     // или явно передан флаг force.
     if (!isUserNearChatBottom && !force) return;
@@ -1171,6 +1195,7 @@ function scrollToBottom(force = false) {
 
 function scrollPageToChatBottom() {
     if (!chatWindow) return;
+    if (Date.now() < userScrollLockUntil) return;
 
     const chatBottomY = chatWindow.getBoundingClientRect().bottom + window.scrollY;
     const desiredY = Math.max(0, chatBottomY - window.innerHeight + 16);
@@ -1179,6 +1204,10 @@ function scrollPageToChatBottom() {
     if (pageScrollAnimationFrameId) return;
 
     const step = () => {
+        if (Date.now() < userScrollLockUntil) {
+            pageScrollAnimationFrameId = null;
+            return;
+        }
         const current = window.scrollY;
         const distance = pageScrollTargetY - current;
 
