@@ -934,7 +934,7 @@ function showMessengerOptions() {
     const messengersContainer = document.createElement('div');
     messengersContainer.className = 'messengers-container';
     
-    const messengers = ['WhatsApp', 'Telegram'];
+    const messengers = ['WhatsApp', 'Telegram', 'Max'];
     
     messengers.forEach((messenger) => {
         const button = document.createElement('button');
